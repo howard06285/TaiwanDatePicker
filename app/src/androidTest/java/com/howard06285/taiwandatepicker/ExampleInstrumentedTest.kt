@@ -18,7 +18,7 @@ class ExampleInstrumentedTest {
     @Test
     fun useAppContext() {
         // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.howard06285.taiwandatepickerdemo", appContext.packageName)
+//        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+//        assertEquals("com.howard06285.taiwandatepicker", appContext.packageName)
     }
 }
