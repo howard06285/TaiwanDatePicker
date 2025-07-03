@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.shigaga.taiwandatepickerdemo"
+    namespace = "com.shigaga.taiwandatepicker"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.shigaga.taiwandatepickerdemo"
+        applicationId = "com.shigaga.taiwandatepicker"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

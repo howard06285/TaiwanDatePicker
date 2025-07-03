@@ -2,7 +2,7 @@
 
 A custom Android date picker dialog for selecting dates in the Taiwanese calendar format (民國年).
 
-[![](https://jitpack.io/v/howard06285/TaiwanDatePickerDemo.svg)](https://jitpack.io/#howard06285/TaiwanDatePickerDemo)
+[![](https://jitpack.io/v/howard06285/TaiwanDatePicker.svg)](https://jitpack.io/#howard06285/TaiwanDatePicker)
 [![GitHub Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/howard06285)
 
 ## Features
@@ -34,7 +34,7 @@ Add the dependency to your app-level `build.gradle` file:
 
 ```gradle
 dependencies {
-    implementation 'com.github.howard06285:TaiwanDatePickerDemo:1.0.0'
+    implementation 'com.github.howard06285:TaiwanDatePicker:1.0.0'
 }
 ```
 

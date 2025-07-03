@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "TaiwanDatePickerDemo"
+rootProject.name = "TaiwanDatePicker"
 include(":app")
 include(":taiwandatepicker")
