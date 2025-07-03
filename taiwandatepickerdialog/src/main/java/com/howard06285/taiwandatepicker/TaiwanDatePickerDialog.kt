@@ -21,7 +21,7 @@ import java.util.Calendar
 class TaiwanDatePickerDialog(
     private val title: String,
     initialDate: SimpleDate = SimpleDate.now(),
-    val useADYearFormat: Boolean, // 是否使用西元年格式顯示
+    val useADYearFormat: Boolean,
     private val onDateSelected: (SimpleDate) -> Unit
 ) : DialogFragment() {
 
@@ -60,7 +60,12 @@ class TaiwanDatePickerDialog(
 
         view.findViewById<Button>(R.id.btn_confirm).setOnClickListener {
             val result = SimpleDate(selectedYear, selectedMonth, selectedDay)
-            onDateSelected(result)
+            val finalResult = if (useADYearFormat) {
+                result
+            } else {
+                result.toTaiwanYear()
+            }
+            onDateSelected(finalResult)
             dismiss()
         }
 
@@ -78,7 +83,7 @@ class TaiwanDatePickerDialog(
     private fun setupYearPicker() {
         val currentYear = Calendar.getInstance().get(Calendar.YEAR)
         val startYear = 1912
-        val endYear = currentYear + 10 // Allow future years
+        val endYear = currentYear + 20      // Allow future years
         
         val displayValues = (startYear..endYear).map {
             if (useADYearFormat) "${it}" else "${it - 1911}"

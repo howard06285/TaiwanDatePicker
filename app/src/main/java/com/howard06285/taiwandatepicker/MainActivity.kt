@@ -31,12 +31,10 @@ class MainActivity : AppCompatActivity() {
                 useADYearFormat = false,
                 initialDate = SimpleDate.now()
             ) { selectedDate ->
-                val taiwanYear = selectedDate.taiwanYear
-                val date = "${taiwanYear}.${selectedDate.month}.${selectedDate.day}"
+                val date = "${selectedDate.year}.${selectedDate.month}.${selectedDate.day}"
                 binding.textview.text = date
                 Log.d(tag, "TaiwanDatePickerDialog, date=$date")
             }
         }
-
     }
 }

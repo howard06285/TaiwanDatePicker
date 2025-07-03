@@ -51,8 +51,22 @@ data class SimpleDate(
     /**
      * Gets the Taiwan year (民國年).
      */
-    val taiwanYear: Int
+    private val taiwanYear: Int
         get() = year - 1911
+    
+    /**
+     * Returns a new SimpleDate with the year converted to Taiwan year format.
+     */
+    fun toTaiwanYear(): SimpleDate {
+        return SimpleDate(taiwanYear, month, day)
+    }
+    
+    /**
+     * Returns a new SimpleDate with the year converted to AD year format.
+     */
+    fun toADYear(): SimpleDate {
+        return SimpleDate(year + 1911, month, day)
+    }
     
     /**
      * Returns the number of days in this month.
