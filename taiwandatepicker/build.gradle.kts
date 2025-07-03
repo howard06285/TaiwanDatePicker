@@ -1,7 +1,7 @@
 plugins {
-    id("com.android.library")
-//    alias(libs.plugins.kotlin.android)
-    kotlin("android")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    id("maven-publish")
 }
 
 android {
@@ -42,4 +42,45 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                
+                groupId = "com.github.shigaga"
+                artifactId = "taiwandatepicker"
+                version = "1.0.0"
+                
+                pom {
+                    name.set("Taiwan Date Picker")
+                    description.set("A custom date picker dialog for selecting dates in the Taiwanese calendar format (民國年)")
+                    url.set("https://github.com/shigaga/TaiwanDatePickerDemo")
+                    
+                    licenses {
+                        license {
+                            name.set("MIT License")
+                            url.set("https://opensource.org/licenses/MIT")
+                        }
+                    }
+                    
+                    developers {
+                        developer {
+                            id.set("shigaga")
+                            name.set("Howard")
+                            email.set("your-email@example.com")
+                        }
+                    }
+                    
+                    scm {
+                        connection.set("scm:git:git://github.com/shigaga/TaiwanDatePickerDemo.git")
+                        developerConnection.set("scm:git:ssh://github.com:shigaga/TaiwanDatePickerDemo.git")
+                        url.set("https://github.com/shigaga/TaiwanDatePickerDemo")
+                    }
+                }
+            }
+        }
+    }
 }
