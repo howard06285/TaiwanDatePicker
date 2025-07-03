@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             TaiwanDatePickerDialog.show(
                 fragmentManager = supportFragmentManager,
                 title = "選擇日期",
-                useADYearFormat = false,
+                useADYearFormat = true,
                 initialDate = SimpleDate.now()
             ) { selectedDate ->
                 val date = "${selectedDate.year}.${selectedDate.month}.${selectedDate.day}"
