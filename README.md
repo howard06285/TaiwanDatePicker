@@ -44,18 +44,18 @@ dependencies {
 
 ```kotlin
 import com.howard06285.taiwandatepicker.TaiwanDatePickerDialog
-import java.time.LocalDate
+import com.howard06285.taiwandatepicker.SimpleDate
 
 // Show Taiwan Date Picker with 民國年 format
 TaiwanDatePickerDialog.show(
     fragmentManager = supportFragmentManager,
     title = "選擇日期",
     useADYearFormat = false, // false for 民國年, true for 西元年
-    initialDate = LocalDate.now()
+    initialDate = SimpleDate.now()
 ) { selectedDate ->
     // Handle the selected date
-    val taiwanYear = selectedDate.year - 1911
-    val date = "${taiwanYear}.${selectedDate.monthValue}.${selectedDate.dayOfMonth}"
+    val taiwanYear = selectedDate.taiwanYear
+    val date = "${taiwanYear}.${selectedDate.month}.${selectedDate.day}"
     Log.d("DatePicker", "Selected date: $date")
 }
 ```
@@ -68,10 +68,15 @@ TaiwanDatePickerDialog.show(
     fragmentManager = supportFragmentManager,
     title = "Select Date",
     useADYearFormat = true, // Western year format
-    initialDate = LocalDate.of(2024, 1, 1)
+    initialDate = SimpleDate(2024, 1, 1)
 ) { selectedDate ->
-    // Handle selected date
-    binding.textView.text = selectedDate.toString()
+    // Handle selected date - using built-in taiwan year property
+    val displayText = if (useADYearFormat) {
+        "${selectedDate.year}/${selectedDate.month}/${selectedDate.day}"
+    } else {
+        "民國${selectedDate.taiwanYear}年${selectedDate.month}月${selectedDate.day}日"
+    }
+    binding.textView.text = displayText
 }
 ```
 
@@ -82,8 +87,22 @@ TaiwanDatePickerDialog.show(
 | `fragmentManager` | FragmentManager | Fragment manager for showing dialog | Required |
 | `title` | String? | Dialog title | "" |
 | `useADYearFormat` | Boolean | true: 西元年, false: 民國年 | Required |
-| `initialDate` | LocalDate | Initial date to display | LocalDate.now() |
-| `onDateSelected` | (LocalDate) -> Unit | Callback when date is selected | Required |
+| `initialDate` | SimpleDate | Initial date to display | SimpleDate.now() |
+| `onDateSelected` | (SimpleDate) -> Unit | Callback when date is selected | Required |
+
+## SimpleDate API
+
+The `SimpleDate` class provides a simple, API level 24+ compatible date representation:
+
+| Property/Method | Type | Description |
+|----------------|------|-------------|
+| `year` | Int | Year (e.g., 2024) |
+| `month` | Int | Month (1-12) |
+| `day` | Int | Day of month (1-31) |
+| `taiwanYear` | Int | Taiwan year (民國年) = year - 1911 |
+| `now()` | SimpleDate | Creates current date |
+| `daysInMonth()` | Int | Returns days in this month |
+| `toString()` | String | Format: "2024-01-15" |
 
 ## Dark Theme Support
 
@@ -97,6 +116,7 @@ The Taiwan Date Picker automatically adapts to your app's dark theme settings:
 - Android API 24+ (Android 7.0)
 - AndroidX support libraries
 - Kotlin
+- **No desugaring required** - Uses standard Calendar API for maximum compatibility
 
 ## Sample App
 

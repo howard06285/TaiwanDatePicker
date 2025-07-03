@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.howard06285.taiwandatepicker.databinding.ActivityMainBinding
-import java.time.LocalDate
 
 class MainActivity : AppCompatActivity() {
     private val tag = MainActivity::class.java.simpleName
@@ -28,10 +27,12 @@ class MainActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
             TaiwanDatePickerDialog.show(
                 fragmentManager = supportFragmentManager,
+                title = "選擇日期",
                 useADYearFormat = false,
-                initialDate = LocalDate.now()
+                initialDate = SimpleDate.now()
             ) { selectedDate ->
-                val date = "${selectedDate.year - 1911}.${selectedDate.monthValue}.${selectedDate.dayOfMonth}"
+                val taiwanYear = selectedDate.taiwanYear
+                val date = "${taiwanYear}.${selectedDate.month}.${selectedDate.day}"
                 binding.textview.text = date
                 Log.d(tag, "TaiwanDatePickerDialog, date=$date")
             }

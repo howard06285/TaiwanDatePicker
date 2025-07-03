@@ -9,11 +9,9 @@ import android.widget.NumberPicker
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
-import java.time.LocalDate
-import java.time.YearMonth
+import java.util.Calendar
+
 /**
- * Created by Howard on 2025/4/14
- *
  * A custom date picker dialog for selecting dates in the Taiwanese calendar format.
  *
  * @param initialDate The initial date to display in the picker.
@@ -22,9 +20,9 @@ import java.time.YearMonth
  */
 class TaiwanDatePickerDialog(
     private val title: String,
-    initialDate: LocalDate = LocalDate.now(),
+    initialDate: SimpleDate = SimpleDate.now(),
     val useADYearFormat: Boolean, // 是否使用西元年格式顯示
-    private val onDateSelected: (LocalDate) -> Unit
+    private val onDateSelected: (SimpleDate) -> Unit
 ) : DialogFragment() {
 
     private lateinit var titleTv: TextView
@@ -34,8 +32,8 @@ class TaiwanDatePickerDialog(
     private lateinit var npDay: NumberPicker
 
     private var selectedYear = initialDate.year
-    private var selectedMonth = initialDate.monthValue
-    private var selectedDay = initialDate.dayOfMonth
+    private var selectedMonth = initialDate.month
+    private var selectedDay = initialDate.day
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(requireContext())
@@ -61,7 +59,7 @@ class TaiwanDatePickerDialog(
         setupDayPicker()
 
         view.findViewById<Button>(R.id.btn_confirm).setOnClickListener {
-            val result = LocalDate.of(selectedYear, selectedMonth, selectedDay)
+            val result = SimpleDate(selectedYear, selectedMonth, selectedDay)
             onDateSelected(result)
             dismiss()
         }
@@ -78,10 +76,10 @@ class TaiwanDatePickerDialog(
     }
 
     private fun setupYearPicker() {
-        val currentYear = LocalDate.now().year
+        val currentYear = Calendar.getInstance().get(Calendar.YEAR)
         val startYear = 1912
-        val endYear = currentYear
-//        val displayValues = (startYear..endYear).map { "民國 ${it - 1911} 年" }.toTypedArray()
+        val endYear = currentYear + 10 // Allow future years
+        
         val displayValues = (startYear..endYear).map {
             if (useADYearFormat) "${it}" else "${it - 1911}"
         }.toTypedArray()
@@ -100,7 +98,6 @@ class TaiwanDatePickerDialog(
     }
 
     private fun setupMonthPicker() {
-//        val displayValues = (1..12).map { "${it} 月" }.toTypedArray()
         val displayValues = (1..12).map { "${it}" }.toTypedArray()
         npMonth.minValue = 1
         npMonth.maxValue = 12
@@ -122,7 +119,7 @@ class TaiwanDatePickerDialog(
     }
 
     private fun updateDayPicker() {
-        val daysInMonth = YearMonth.of(selectedYear, selectedMonth).lengthOfMonth()
+        val daysInMonth = SimpleDate(selectedYear, selectedMonth, 1).daysInMonth()
         npDay.minValue = 1
         npDay.maxValue = daysInMonth
 
@@ -138,8 +135,8 @@ class TaiwanDatePickerDialog(
             fragmentManager: FragmentManager,
             title: String? = null,
             useADYearFormat: Boolean,
-            initialDate: LocalDate = LocalDate.now(),
-            onDateSelected: (LocalDate) -> Unit
+            initialDate: SimpleDate = SimpleDate.now(),
+            onDateSelected: (SimpleDate) -> Unit
         ) {
             TaiwanDatePickerDialog(
                 title = title ?: "",

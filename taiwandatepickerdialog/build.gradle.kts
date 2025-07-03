@@ -26,7 +26,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "11"
@@ -41,7 +40,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 }
 
 afterEvaluate {
@@ -52,7 +50,7 @@ afterEvaluate {
                 
                 groupId = "com.github.howard06285"
                 artifactId = "taiwandatepicker"
-                version = "1.0.2"
+                version = "1.0.3"
                 
                 pom {
                     name.set("Taiwan Date Picker")
