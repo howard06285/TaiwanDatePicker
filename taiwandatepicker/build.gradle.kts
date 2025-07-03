@@ -50,14 +50,14 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
                 
-                groupId = "com.github.shigaga"
+                groupId = "com.github.howard06285"
                 artifactId = "taiwandatepicker"
                 version = "1.0.0"
                 
                 pom {
                     name.set("Taiwan Date Picker")
                     description.set("A custom date picker dialog for selecting dates in the Taiwanese calendar format (民國年)")
-                    url.set("https://github.com/shigaga/TaiwanDatePicker")
+                    url.set("https://github.com/howard06285/TaiwanDatePicker")
                     
                     licenses {
                         license {
@@ -68,16 +68,16 @@ afterEvaluate {
                     
                     developers {
                         developer {
-                            id.set("shigaga")
+                            id.set("howard06285")
                             name.set("Howard")
                             email.set("howard06285@gmail.com")
                         }
                     }
                     
                     scm {
-                        connection.set("scm:git:git://github.com/shigaga/TaiwanDatePicker.git")
-                        developerConnection.set("scm:git:ssh://github.com:shigaga/TaiwanDatePicker.git")
-                        url.set("https://github.com/shigaga/TaiwanDatePicker")
+                        connection.set("scm:git:git://github.com/howard06285/TaiwanDatePicker.git")
+                        developerConnection.set("scm:git:ssh://github.com:howard06285/TaiwanDatePicker.git")
+                        url.set("https://github.com/howard06285/TaiwanDatePicker")
                     }
                 }
             }
