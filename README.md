@@ -15,7 +15,11 @@ A custom Android date picker dialog for selecting dates in the Taiwanese calenda
 
 ## Screenshots
 
-*Add screenshots here when available*
+<p align="center">
+    <img src="images/Screenshot_20250704_011220.png" width="30%" />
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="images/Screenshot_20250704_005754.png" width="30%" />
+</p>
 
 ## Installation
 
