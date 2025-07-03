@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="選擇日期"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="16dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/yearPrefixTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show_all_date_taiwan_title"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/np_year"/>
+
+        <NumberPicker
+            android:id="@+id/np_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/customTaiwanDatePickerText"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/yearPrefixTextView"
+            app:layout_constraintEnd_toStartOf="@+id/yearSuffixTextView" />
+
+        <TextView
+            android:id="@+id/yearSuffixTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/year"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/np_year"
+            app:layout_constraintEnd_toStartOf="@+id/np_month" />
+
+        <NumberPicker
+            android:id="@+id/np_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/customTaiwanDatePickerText"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/yearSuffixTextView"
+            app:layout_constraintEnd_toStartOf="@+id/monthSuffixTextView"/>
+
+        <TextView
+            android:id="@+id/monthSuffixTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/month"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/np_month"
+            app:layout_constraintEnd_toStartOf="@+id/np_day" />
+
+        <NumberPicker
+            android:id="@+id/np_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/customTaiwanDatePickerText"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/monthSuffixTextView"
+            app:layout_constraintEnd_toStartOf="@+id/daySuffixTextView"/>
+
+        <TextView
+            android:id="@+id/daySuffixTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/day"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/np_day"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/alert_dialog_yes"
+        android:textSize="18sp"
+        android:layout_marginTop="24dp"/>
+</LinearLayout>
