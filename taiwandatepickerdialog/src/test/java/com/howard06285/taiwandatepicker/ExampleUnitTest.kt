@@ -1,4 +1,4 @@
-package com.shigaga.taiwandatepickerdemo
+package com.howard06285.taiwandatepicker
 
 import org.junit.Test
 

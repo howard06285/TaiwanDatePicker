@@ -43,7 +43,7 @@ dependencies {
 ### Basic Usage
 
 ```kotlin
-import com.shigaga.taiwandatepicker.TaiwanDatePickerDialog
+import com.howard06285.taiwandatepicker.TaiwanDatePickerDialog
 import java.time.LocalDate
 
 // Show Taiwan Date Picker with 民國年 format

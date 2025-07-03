@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.shigaga.taiwandatepicker"
+    namespace = "com.howard06285.taiwandatepicker"
     compileSdk = 36
 
     defaultConfig {

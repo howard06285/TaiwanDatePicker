@@ -1,4 +1,4 @@
-package com.shigaga.taiwandatepicker
+package com.howard06285.taiwandatepicker
 
 import android.app.AlertDialog
 import android.app.Dialog

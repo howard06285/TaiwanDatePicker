@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TaiwanDatePickerDemo">
         <activity
-            android:name="com.shigaga.taiwandatepickerdemo.MainActivity"
+            android:name="com.howard06285.taiwandatepicker.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
