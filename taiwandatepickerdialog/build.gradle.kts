@@ -50,7 +50,7 @@ afterEvaluate {
                 
                 groupId = "com.github.howard06285"
                 artifactId = "taiwandatepicker"
-                version = "1.0.3"
+                version = "1.0.4"
                 
                 pom {
                     name.set("Taiwan Date Picker")
