@@ -25,16 +25,16 @@ Add JitPack repository to your root `build.gradle` file:
 allprojects {
     repositories {
         ...
-        maven { url 'https://jitpack.io' }
+        maven { url = uri("https://jitpack.io") }
     }
 }
 ```
 
-Add the dependency to your app-level `build.gradle` file:
+Add the dependency to your app-level `build.gradle.kts` file:
 
 ```gradle
 dependencies {
-    implementation 'com.github.howard06285:TaiwanDatePicker:1.0.0'
+    implementation("com.github.howard06285:TaiwanDatePicker:1.0.5")
 }
 ```
 
@@ -50,33 +50,27 @@ import com.howard06285.taiwandatepicker.SimpleDate
 TaiwanDatePickerDialog.show(
     fragmentManager = supportFragmentManager,
     title = "選擇日期",
-    useADYearFormat = false, // false for 民國年, true for 西元年
+    useADYearFormat = false,            // false: 民國年       
     initialDate = SimpleDate.now()
 ) { selectedDate ->
-    // Handle the selected date
-    val taiwanYear = selectedDate.taiwanYear
-    val date = "${taiwanYear}.${selectedDate.month}.${selectedDate.day}"
-    Log.d("DatePicker", "Selected date: $date")
+    val date = "${selectedDate.year}.${selectedDate.month}.${selectedDate.day}"
+    binding.textview.text = date
 }
 ```
 
 ### Advanced Usage
 
 ```kotlin
+
 // Show with Western year format
 TaiwanDatePickerDialog.show(
     fragmentManager = supportFragmentManager,
-    title = "Select Date",
-    useADYearFormat = true, // Western year format
-    initialDate = SimpleDate(2024, 1, 1)
+    title = "Select date",
+    useADYearFormat = true,            // true: Western year format
+    initialDate = SimpleDate.now()
 ) { selectedDate ->
-    // Handle selected date - using built-in taiwan year property
-    val displayText = if (useADYearFormat) {
-        "${selectedDate.year}/${selectedDate.month}/${selectedDate.day}"
-    } else {
-        "民國${selectedDate.taiwanYear}年${selectedDate.month}月${selectedDate.day}日"
-    }
-    binding.textView.text = displayText
+    val date = "${selectedDate.year}.${selectedDate.month}.${selectedDate.day}"
+    binding.textview.text = date
 }
 ```
 
