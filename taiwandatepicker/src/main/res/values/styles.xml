@@ -2,6 +2,7 @@
 <resources>
     <style name="customTaiwanDatePickerText">
         <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/dialog_text_color</item>
     </style>
 
 </resources>

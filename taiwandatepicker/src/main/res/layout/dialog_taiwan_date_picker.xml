@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-
+    android:background="@color/dialog_background"
     android:padding="16dp">
 
     <TextView
@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         tools:text="選擇日期"
         android:textSize="20sp"
+        android:textColor="@color/dialog_text_color"
         android:layout_gravity="center_horizontal"
         android:paddingBottom="16dp" />
 
@@ -30,6 +31,7 @@
             android:layout_height="wrap_content"
             android:text="@string/show_all_date_taiwan_title"
             android:textSize="20sp"
+            android:textColor="@color/dialog_text_color"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -51,6 +53,7 @@
             android:layout_height="wrap_content"
             android:text="@string/year"
             android:textSize="20sp"
+            android:textColor="@color/dialog_text_color"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/np_year"
@@ -72,6 +75,7 @@
             android:layout_height="wrap_content"
             android:text="@string/month"
             android:textSize="20sp"
+            android:textColor="@color/dialog_text_color"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/np_month"
@@ -93,6 +97,7 @@
             android:layout_height="wrap_content"
             android:text="@string/day"
             android:textSize="20sp"
+            android:textColor="@color/dialog_text_color"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/np_day"
