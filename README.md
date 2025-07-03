@@ -43,9 +43,6 @@ dependencies {
 ### Basic Usage
 
 ```kotlin
-import com.howard06285.taiwandatepicker.TaiwanDatePickerDialog
-import com.howard06285.taiwandatepicker.SimpleDate
-
 // Show Taiwan Date Picker with 民國年 format
 TaiwanDatePickerDialog.show(
     fragmentManager = supportFragmentManager,
@@ -61,7 +58,6 @@ TaiwanDatePickerDialog.show(
 ### Advanced Usage
 
 ```kotlin
-
 // Show with Western year format
 TaiwanDatePickerDialog.show(
     fragmentManager = supportFragmentManager,
