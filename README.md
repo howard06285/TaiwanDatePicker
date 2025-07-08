@@ -59,21 +59,6 @@ TaiwanDatePickerDialog.show(
 }
 ```
 
-### Advanced Usage
-
-```kotlin
-// Show with Western year format
-TaiwanDatePickerDialog.show(
-    fragmentManager = supportFragmentManager,
-    title = "Select date",
-    useADYearFormat = true,            // true: Western year format
-    initialDate = SimpleDate.now()
-) { selectedDate ->
-    val date = "${selectedDate.year}.${selectedDate.month}.${selectedDate.day}"
-    binding.textview.text = date
-}
-```
-
 ## Parameters
 
 | Parameter | Type | Description | Default |
